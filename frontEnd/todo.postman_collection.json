@@ -1,0 +1,269 @@
+{
+	"variables": [],
+	"info": {
+		"name": "todo",
+		"_postman_id": "1f3059a1-c94b-f1eb-3a7c-9abd03548de4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"url": "http://localhost:4444/user",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"vehbiakdogan\",\n    \"name\": \"vehbi\",\n    \"surName\":\"akdogan\",\n    \"password\":\"12345\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getUser",
+					"request": {
+						"url": "http://localhost:4444/user/4",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "1",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"url": "http://localhost:4444/user",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"1\",\n    \"username\": \"vehbiakdogan_edit\",\n    \"name\": \"vehbi\",\n    \"surName\":\"akdogan\",\n    \"password\":\"12345\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "setLogin",
+					"request": {
+						"url": "http://localhost:4444/isLogin",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"vehbiakdogan\",\n    \"password\":\"12345\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo",
+			"description": "",
+			"item": [
+				{
+					"name": "addTodo",
+					"request": {
+						"url": "http://localhost:4444/todo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"291\",\n    \"name\": \"add New Todo\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getTodo",
+					"request": {
+						"url": "http://localhost:4444/todo/706",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "updateTodo",
+					"request": {
+						"url": "http://localhost:4444/todo",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":1,\n    \"userId\": \"1\",\n    \"name\": \"todo \"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "userTodo",
+					"request": {
+						"url": "http://localhost:4444/userTodo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"291\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTodo",
+					"request": {
+						"url": "http://localhost:4444/todo",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"577\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "getUserTodos",
+					"request": {
+						"url": "http://localhost:4444/userTodo/291",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TodoItems",
+			"description": "",
+			"item": [
+				{
+					"name": "getTodoItemsByTodoId",
+					"request": {
+						"url": "http://localhost:4444/todoItem/737",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "addTodoItem",
+					"request": {
+						"url": "http://localhost:4444/todoItem",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"item 1\",\n    \"desctription\": \"item 1 desc\",\n    \"status\":\"false\",\n    \"todoId\":\"737\",\n    \"startTime\":\"01/01/1995\",\n    \"endTime\": \"05/05/1995\",\n    \"attachedId\":0\n    \n    \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "todoItemStatus",
+					"request": {
+						"url": "http://localhost:4444/todoItem/903",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"false\"\n    \n    \n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

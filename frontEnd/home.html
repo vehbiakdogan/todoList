@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Todo App | Vehbi Akdoğan</title>
+	<meta name="description" content=" " />
+	<meta name="keyword" content=" " />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta name="author" content="Vehbi Akdogan" /> 
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,600,700,700i" rel="stylesheet">
+	<link rel="stylesheet" href="plugin/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="plugin/bootstrap/awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="plugin/bootstrap/css/bootstrap-theme.css" />
+	<link rel="stylesheet" href="plugin/dataTable/dataTables.bootstrap.min.css" />
+	<link rel="stylesheet" href="plugin/toastr/toastr.min.css" />
+	<link rel="stylesheet" href="style/style.css?v=1.0" />
+	<link rel="stylesheet" href="style/responsive.css?v=1.0" />
+</head>
+<body>
+<div class="error"></div>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center"> <h1>Todo List App</h1> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<section class="container">
+		<nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="home.html">Home</a></li>
+               
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            	<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome ( <span class="userName"></span>)  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" onclick="$.logOut();">Logout</a></li>
+                </ul>
+              </li> 
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+	</section>
+	
+	<section class="container">
+	<div class="row">
+		<div class="col-md-12 text-right"  >
+			<a href="" class="label label-success " data-toggle="modal" data-target="#addTodoModal"> <i class="fa fa-plus"></i> Add Todo</a>
+		</div>
+	</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-primary ">
+					<thead> 
+						<tr>
+							<th>#</th>
+							<th>Todo Name</th>
+							<th>Created Time</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="todoList">
+						 
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Add todo -->
+	<div id="addTodoModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title text-center">Add todo</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert formAlert"></div>
+	      	<form action="" method="POST" data-form="addTodo">
+	      		<div class="form-group">
+	      		<label for=""> Todo Title</label>
+	      			<input class="form-control" type="text" name="name" placeholder="Toto Title" />
+	      			<input class="form-control userIdText" type="hidden" name="userId"  />
+	      		</div>
+	      		<div class="form-group text-right">
+	      			<button class="btn btn-success" type="submit">Submit</button>
+	      		</div>
+	      	</form>
+	      </div>
+	      
+	    </div>
+
+	  </div>
+	</div>
+	
+	
+	<!-- Update todo -->
+	<div id="editTodoModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title text-center">Edit todo</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert formAlert"></div>
+	      	<form action="" method="POST" data-form="editTodo">
+	      		<div class="form-group">
+	      		<label for=""> Todo Title</label>
+	      			<input class="form-control todoName" type="text" name="name" placeholder="Toto Title" />
+	      			<input class="form-control userIdText" type="hidden" name="userId"  />
+	      			<input class="form-control todoIdText" type="hidden" name="id"  />
+	      			<input class="form-control todoCreatedTimeText" type="hidden" name="createdTime"  />
+	      		</div>
+	      		<div class="form-group text-right">
+	      			<button class="btn btn-success" type="submit">Update</button>
+	      		</div>
+	      	</form>
+	      </div>
+	      
+	    </div>
+
+	  </div>
+	</div>
+	
+	
+	<!-- Add Todo Items-->
+	<div id="addTodoItemModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title text-center">Add Todo Items</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="alert formAlert"></div>
+	      	<form action="" method="POST" data-form="addTodoItem">
+	      		<div class="form-group">
+	      			<label> Item Title</label>
+	      			<input class="form-control" type="text" name="title" placeholder="Item Title" />
+	      		</div>
+	      		<div class="form-group">
+	      			<label> Item Desctription</label>
+	      			<input class="form-control" type="text" name="desctription" placeholder="Item Desctription" />
+	      		</div>
+	      		<div class="form-group">
+	      			<div class="row">
+		      			<div class="col-md-6">
+		      				<label> Start Date</label>
+		      				<input class="form-control" type="date" name="startTime" placeholder="Start Date" />
+		      			</div>
+		      			<div class="col-md-6">
+		      				<label> End Date</label>
+		      				<input class="form-control" type="date" name="endTime" placeholder="End Date" />
+		      			</div>
+		      		</div>
+	      			
+	      		</div>
+	      		<div class="form-group">
+	      			<label> Attached Item</label>
+	      			<input type="hidden" name="todoId" class="todoIdText" />
+	      			<select class="form-control todoItems" name="attachedId" id="">
+	      				<option value="0"> No Attached</option>
+	      			</select>
+	      		</div>
+	      		
+	      		
+	      		<div class="form-group text-right">
+	      			<button class="btn btn-success" type="submit">Submit</button>
+	      		</div>
+	      	</form>
+	      </div>
+	      
+	    </div>
+
+	  </div>
+	</div>
+	
+	<!-- Todo Details-->
+	<div id="showTodoModal" class="modal fade " role="dialog">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title text-center">Todo Details</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<table class="table table-primary dataTable ">
+					<thead> 
+						<tr>
+							<th>#</th>
+							<th>Item Name</th>
+							<th>Item Desctription</th>
+							<th>Start Date</th>
+							<th>End Date</th>
+							<th>Status</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="todoItemList">
+						 
+					</tbody>
+				</table>
+	      	
+	      </div>
+	      
+	    </div>
+
+	  </div>
+	</div>
+	
+	
+	
+	
+	
+	<footer class="text-center">
+		2019 Huawei Technologies | Developed by vehbiakdogan
+	</footer>
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="plugin/bootstrap/js/bootstrap.min.js"></script> 
+	<script type="text/javascript" src="plugin/dataTable/jquery.dataTables.min.js"></script> 
+	<script type="text/javascript" src="plugin/dataTable/dataTables.bootstrap.min.js"></script> 
+	<script type="text/javascript" src="plugin/toastr/toastr.min.js"></script> 
+	<script type="text/javascript" src="js/vehbiakdogan.js?v=1.0"></script>
+</body>
+</html>

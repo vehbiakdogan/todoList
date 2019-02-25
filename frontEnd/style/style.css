@@ -1,0 +1,134 @@
+/**
+* 	@author: Vehbi AKDOGAN
+* 	@mail: akdoganvehbi@gmail.com || info@vehbiakdogan.com
+* 	@website: vehbiakdogan.com
+*/
+*,body {
+	padding:0;
+	border:0;
+	margin:0;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: normal;
+}
+a,img {
+	border:0;
+	text-decoration:none;
+}
+ul {
+	padding:0;
+	margin:0;
+}
+ul li {
+	list-style:none;
+}
+.temizle {
+	clear:both;
+}
+.panel-default {
+	margin-top:20px;
+}
+.panel-default .panel-heading  {
+	background: #9b59b6;
+	color: #fff;
+	border:none;
+}
+.navbar-default {
+	    background: #7c359a;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus  {
+	color:#fff;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover, .dropdown-menu {
+	background:#2c3e50;
+	color:#fff;
+}
+.dropdown-menu>li>a{
+	color:#fff;
+}
+.dropdown-menu > li > a:hover {
+	background: #7c359a;
+	color:#fff;
+}
+footer {
+	padding:20px 0; 
+}
+
+.label-success, .label-danger, .label-info, .label-default {
+	padding:5px;
+	displaY: inline-block;
+	margin-bottom: 15px;
+	font-size: 14px;
+}
+.label-default {
+	background: #9b59b6;
+}
+.table-primary thead {
+	background: #9b59b6;
+	color: #fff;
+	border:none;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+ 
+    background-color: #9b59b6;
+    border-color: #9b4dbb;
+}
+
+input.check {
+  position: absolute;
+  opacity: 0;
+}
+input.check:checked + label svg path {
+  stroke-dashoffset: 0;
+}
+input.check:focus + label {
+  transform: scale(1.03);
+}
+
+.check + label {
+  display: block;
+  border: 2px solid #9b59b6;
+  width: var(--d);
+  height: var(--d);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .2s ease;
+  display: inline-block;
+      margin-right: 10px;
+	float: left;
+}
+.check + label:active {
+  transform: scale(1.05);
+  border-radius: 2px;
+}
+.check + label svg {
+  pointer-events: none;
+}
+.check + label svg path {
+  fill: none;
+  stroke: #9b59b6;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 101;
+  transition: all 350ms cubic-bezier(1, 0, 0.37, 0.91);
+}
+
+.error {
+	widtH:100%;
+	height:100%;
+	position: absolute;
+	top:0;
+	left:0;
+	background: rgba(0,0,0,.9);
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #9b59b6;
+	font-size:40px;
+	text-align: center;
+	font-weight:bold;
+	display:none;
+	z-index:99;
+}

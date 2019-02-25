@@ -1,0 +1,27 @@
+/**
+* 	@author: Vehbi AKDOGAN
+* 	@mail: mf.leqelyy@gmail.com || info@vehbiakdogan.com
+* 	@website: vehbiakdogan.com
+* 	@office: ajansorkestra.com
+*/
+
+
+
+
+/* Tablet */
+@media only screen and (min-width : 768px) {
+	.container {
+		max-width:800px;
+	}
+}
+/* Tablet */
+@media only screen and (max-width : 768px) {
+
+}
+
+
+/* Telefon */
+@media only screen and (max-width : 480px) {
+	
+	 
+}
