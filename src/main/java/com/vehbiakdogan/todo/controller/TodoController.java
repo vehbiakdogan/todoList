@@ -62,19 +62,19 @@ public class TodoController {
     }
 
 
-    @PostMapping("userTodo")
-    public Map getAllTodo(@RequestBody Todo todo) {
-        List<Todo> t = todoService.getAllTodo(todo.getUserId());
+    @GetMapping("userTodo/{userId}")
+    public Map getUserTodos(@PathVariable(name = "userId") Long userId) {
+        List<Todo> t = todoService.getAllTodo(userId);
 
         status.clear();
         if (t == null) {
             status.put("status", "failure");
             status.put("message", "Todo Not Found");
-            status.put("message", todo);
             status.put("code", HttpStatus.GONE);
         } else {
             status.put("status", "success");
             status.put("message", "User Todo List");
+            status.put("count", t.size());
             status.put("code", HttpStatus.OK);
             status.put("todo", t);
         }

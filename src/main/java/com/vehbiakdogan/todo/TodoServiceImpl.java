@@ -1,6 +1,7 @@
 package com.vehbiakdogan.todo;
 
 import com.vehbiakdogan.todo.model.Todo;
+import com.vehbiakdogan.todo.repository.TodoItemRepository;
 import com.vehbiakdogan.todo.repository.TodoRepository;
 import com.vehbiakdogan.todo.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,10 @@ public class TodoServiceImpl implements TodoService {
 
     @Autowired
     private TodoRepository todoRepository;
+    @Autowired
+        private TodoItemRepository todoItemRepository;
 
-    public void setTodoRepository(TodoRepository userRepository) {
+    public void setTodoRepository(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
 
@@ -45,6 +48,7 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public boolean deleteTodo(Long todoId) {
          todoRepository.deleteById(todoId);
+         todoItemRepository.deleteByTodoId(todoId);
         return true;
     }
 }
